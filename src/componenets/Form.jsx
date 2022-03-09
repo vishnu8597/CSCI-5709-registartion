@@ -20,9 +20,26 @@ function Form() {
           <input type="text" name="Age" required />
         </p>
         <p>
+          <label>Address</label>
+          <br />
+          <textarea name="Address" required />
+        </p>
+        <label for="gender">Gender:</label>
+
+        <select name="gender" id="mf">
+          <option value="1">Male</option>
+          <option value="0">Female</option>
+        </select>
+
+        <p>
           <label>Email address</label>
           <br />
           <input type="email" name="email" required />
+        </p>
+        <p>
+          <label>Phone</label>
+          <br />
+          <input type="text" name="phone" required />
         </p>
         <p>
           <label>Password</label>
