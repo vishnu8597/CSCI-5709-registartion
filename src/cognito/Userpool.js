@@ -1,7 +1,7 @@
-import {UserPool} from "amazon-cognito-identity-js"
+import {CognitoUserPool} from "amazon-cognito-identity-js"
 const pooldarams={
-    UserPoolId:"us-east-1_QqnQp5cZX",
-    ClientId:"6t1kup4jkjs65mf84u3ttuauot"
+    UserPoolId:"us-east-1_chY16kVhM",
+    ClientId:"31ia9k1ghs02779ijp4qmpnh7s"
 }
 
-export default new UserPool(pooldarams)
+export default new CognitoUserPool(pooldarams)

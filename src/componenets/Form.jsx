@@ -1,8 +1,34 @@
 import React, { useState } from "react";
-
+import Userpool from "../cognito/Userpool";
+import { CognitoUserAttribute } from "amazon-cognito-identity-js";
 function Form() {
   const onsubmit = (event) => {
     event.preventDefault();
+    var Lname = new CognitoUserAttribute({
+      Name: "family_name",
+      Value: formData.lname,
+    });
+    var Phone = new CognitoUserAttribute({
+      Name: "phone_number",
+      Value: formData.phone,
+    });
+    var Fname = new CognitoUserAttribute({
+      Name: "given_name",
+      Value: formData.fname,
+    });
+
+    Userpool.signUp(
+      formData.email,
+      formData.password,
+      [Lname, Phone, Fname],
+      null,
+      (err, data) => {
+        if (err) {
+          console.log(err);
+        }
+        console.log(data);
+      }
+    );
   };
   const [formData, updateFormData] = useState({
     fname: "",
@@ -53,7 +79,7 @@ function Form() {
 
   return (
     <div>
-      <h2>BE a helping hand</h2>
+      <h2>Be a helping hand</h2>
       <h5>Welcome to canada's biggest online blood bank system</h5>
       <form onSubmit={onsubmit} post="/home">
         <p>
